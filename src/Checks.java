@@ -11,15 +11,11 @@ public class Checks {
         if(checkTamanhoAutor(autor)==2) {
 
             Statement sentencia = null;
-            try {
-                ResultSet listaAutores = sentencia.executeQuery("SELECT * FROM Autores WHERE Nombre = '" + autor + "';");
-                if (listaAutores != null) {
-                    return autor;
-                }else System.err.println("El Autor no existe");
+            ResultSet listaAutores = Sentencias.sentenciaBuscarAutor(autor);
+            if (listaAutores != null) {
+                return autor;
+            }else System.err.println("El Autor no existe");
 
-            } catch (SQLException e) {
-                System.err.println("Error al comprobar la existencia del autor");
-            }
         }else {
             return null;
         }
@@ -92,15 +88,11 @@ public class Checks {
         if(checkTamanhoTitulo(titulo)==2) {
 
             Statement sentencia = null;
-            try {
-                ResultSet listaLibros= sentencia.executeQuery("SELECT * FROM Libros WHERE Titulo = '" + titulo + "';");
-                if (listaLibros != null) {
-                    return titulo;
-                }else System.err.println("El Libro no existe");
+            ResultSet listaLibros= Sentencias.sentenciaBuscarLibro(titulo);
+            if (listaLibros != null) {
+                return titulo;
+            }else System.err.println("El Libro no existe");
 
-            } catch (SQLException e) {
-                System.err.println("Error al comprobar la existencia del libro");
-            }
         }else {
             return null;
         }
