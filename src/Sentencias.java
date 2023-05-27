@@ -21,5 +21,6 @@ public class Sentencias {
         } catch (SQLException e) {
             System.err.println("Error en la sentencia de búsqueda de Autores");
         }
+        return null;
     }
 }
