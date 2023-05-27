@@ -30,6 +30,24 @@ public class Modificaciones {
     }
 
     public static void ModificarAutorPorDNI(){
-
+        Statement sentencia = null;
+        sc=new Scanner(System.in);
+        System.out.println("Dime el DNI del autor que quieres modificar");
+        String dni=sc.nextLine();
+        if(Checks.comprobarDNI(dni)){
+            System.out.println("Dime el nuevo nombre del Autor");
+            String nuevoNombre=sc.nextLine();
+            System.out.println("Dime la nueva nacionalidad del Autor");
+            String nuevaNacionalidad=sc.nextLine();
+            System.out.println("Dime el nuevo DNI del autor");
+            String nuevoDni=sc.nextLine();
+            if((Checks.checkTamanhoAutor(nuevoNombre)==2) && (Checks.checkTamanhoNacionalidad(nuevaNacionalidad)==2) && (Checks.checkDNIifExists(nuevoDni))){
+                try{
+                    sentencia.executeUpdate("UPDATE Autores set Dni= '"+nuevoDni+"', Nombre= '"+nuevoNombre+"', Nacionalidad= '"+nuevaNacionalidad+"';");
+                } catch (Exception e) {
+                    System.err.println("Problemita al Modificar un Autor");
+                }
+            }
+        }
     }
 }

@@ -117,12 +117,10 @@ public class Menu {
             num=sc.nextInt();
             if(Checks.comprobarNumeroMenusPeque(num)){
                 if(num==1)
-
+                    Modificaciones.ModificarLibroPorTitulo();
                 if(num==2)
-
+                    Modificaciones.ModificarAutorPorDNI();
             }
-
-
         }while (num!=0);
     }
 
