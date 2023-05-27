@@ -20,10 +20,12 @@ public class Menu {
             System.out.println("|Pulsa: 4 para realizar modificaciones----|");// Estos comentarios, en parte, son como intra-bromas
             System.out.println("|------------Pulsa 0 para salir-----------|");// A razón de que solo los leerás tu y ya quedaran para la historia
             System.out.println("|_________________________________________|");
-            num=sc.nextInt();//TODO hacer una comprobacion del numero que se mete
-
-            switch (num){
-                case 1: menuInsercion();
+            num=sc.nextInt();
+            if(Checks.comprobarNumeroMenuGeneral(num)) {
+                switch (num) {
+                    case 1:
+                        menuInsercion();
+                }
             }
         }while (num!=0);
 
@@ -38,17 +40,35 @@ public class Menu {
             System.out.println("Pulsa: 2 para Añadir un nuevo Libro");
             System.out.println("---------Pulsa: 0 para salir-------");
             num=sc.nextInt();
+            if(Checks.comprobarNumeroMenusPeque(num)) {
 
-
-            if(num==1){
-                Inserciones.insertarAutor();
-            }
-            if(num==2){
-                Inserciones.insertarLibro();
+                if (num == 1) {
+                    Inserciones.insertarAutor();
+                }
+                if (num == 2) {
+                    Inserciones.insertarLibro();
+                }
             }
         }while (num!=0);
     }
 
+    public static void menuBorrado(){
+        sc=new Scanner(System.in);
+        int num=999;
+        do{
+            System.out.println("Sea bienvenido al menú de *Borrado*");
+            System.out.println("Pulsa: 1 para borrar un libro");
+            System.out.println("Pulsa: 2 para borrar un autor");
+            System.out.println("---------Pulsa: 0 para salir-------");
+            num=sc.nextInt();
+            if(Checks.comprobarNumeroMenusPeque(num)){
+                if(num==1){
 
+                }
+            }
+
+
+        }while (num!=0);
+    }
 
 }

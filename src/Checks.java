@@ -15,7 +15,7 @@ public class Checks {
                 ResultSet listaAutores = sentencia.executeQuery("SELECT * FROM Autores WHERE Nombre = '" + autor + "';");
                 if (listaAutores != null) {
                     return autor;
-                }
+                }else System.err.println("El Autor no existe");
 
             } catch (SQLException e) {
                 System.err.println("Error al comprobar la existencia del autor");
@@ -65,5 +65,53 @@ public class Checks {
             int indiceLetra = numero % 23;
             return letras.charAt(indiceLetra);
         }
+
+    public static int checkTamanhoNacionalidad(String nacionalidad){
+        if(nacionalidad.length()>30){
+            System.out.println("La Nacionalidad es demasiado larga");
+            return 1;
+        }else return 2;
+    }
+
+    public static boolean comprobarNumeroMenuGeneral(int num){
+        if(num!=1 || num!=2 || num!=3 || num!=4 || num!=0){
+            System.err.println("Cabrón, solo tenías que hacer una cosa y te has equivocado, prueba otra vez anda");
+            return false;
+        }else return true;
+    }
+
+    public static boolean comprobarNumeroMenusPeque(int num){
+        if(num!=1 || num!=2 || num!=0){
+            System.err.println("Cabrón, solo tenías que hacer una cosa y te has equivocado, prueba otra vez anda");
+            return false;
+        }else return true;
+    }
+
+
+    public static String checkLibroSiExiste(String titulo){
+        if(checkTamanhoTitulo(titulo)==2) {
+
+            Statement sentencia = null;
+            try {
+                ResultSet listaLibros= sentencia.executeQuery("SELECT * FROM Libros WHERE Titulo = '" + titulo + "';");
+                if (listaLibros != null) {
+                    return titulo;
+                }else System.err.println("El Libro no existe");
+
+            } catch (SQLException e) {
+                System.err.println("Error al comprobar la existencia del libro");
+            }
+        }else {
+            return null;
+        }
+        return null;
+    }
+
+    public static int checkTamanhoTitulo(String titulo){
+        if(titulo.length()>30){
+            System.out.println("El titulo es demasiado largo");
+            return 1;
+        }else return 2;
+    }
 
 }

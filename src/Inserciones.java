@@ -10,13 +10,15 @@ public class Inserciones {
     System.out.println("Dígame un nombre de autor");
     String nombreAutor=sc.nextLine();
     System.out.println("Dime el DNI del autor");
-    String dniAutor=sc.nextLine();//TODO Comprobar DNI
+    String dniAutor=sc.nextLine();
     System.out.println("Dime nacionalidad del autor");
-    String nacionalidadAutor=sc.nextLine(); //TODO Comprobar tamaño maximo
+    String nacionalidadAutor=sc.nextLine();
 
     Boolean valido=Checks.comprobarDNI(dniAutor);
 
-    if((Checks.checkAutorIfExists(nombreAutor)==null) && valido) {
+    int verificarNacionalidad=Checks.checkTamanhoNacionalidad(nacionalidadAutor);
+
+    if((Checks.checkAutorIfExists(nombreAutor)==null) && valido && verificarNacionalidad==2) {
         try {
             sentencia.executeUpdate("INSERT INTO PRODUCTOS (Dni,Nombre,Nacionalidad) VALUES('" + dniAutor + "','" + nombreAutor + "','" + nacionalidadAutor + "');");
             System.out.println("Autor añadido");
