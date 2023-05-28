@@ -38,7 +38,7 @@ public class Consultas {
                 listaLibros = sentencia.executeQuery("SELECT * from Libros WHERE Autor= '"+dniAutor+"';");
                 while(listaLibros.next()){
                     cont++;
-                    System.out.println("Libro numero 1");
+                    System.out.println("Libro numero "+cont);
                     System.out.println("El ID del libro es: "+listaLibros.getInt("IdLibro"));
                     System.out.println("El titulo del libro es: "+listaLibros.getString("Titulo"));
                     System.out.println("El precio del libro es: "+listaLibros.getFloat("Precio"));
@@ -59,7 +59,7 @@ public class Consultas {
             ResultSet listaLibros= sentencia.executeQuery("SELECT * FROM Libros");
             while(listaLibros.next()){
                 cont++;
-                System.out.println("Libro numero 1");
+                System.out.println("Libro numero "+cont);
                 System.out.println("El ID del libro es: "+listaLibros.getInt("IdLibro"));
                 System.out.println("El titulo del libro es: "+listaLibros.getString("Titulo"));
                 System.out.println("El precio del libro es: "+listaLibros.getFloat("Precio"));

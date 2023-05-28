@@ -29,8 +29,7 @@ public class Modificaciones {
                 ResultSet listaLibros = Sentencias.sentenciaBuscarLibro(titulo);
                 if (listaLibros != null) {
                     try {
-                        int idLibro=listaLibros.getInt("IdLibro");
-                        sentencia.executeUpdate("UPDATE Libros SET Titulo = '" + nuevoTitulo + "', Precio = " + nuevoPrecio + ", Autor = '" + dniAutor + "' WHERE IdLibro = " + idLibro);
+                        sentencia.executeUpdate("UPDATE Libros SET Titulo = '" + nuevoTitulo + "', Precio = " + nuevoPrecio + " WHERE Titulo = '" + titulo + "'");
                         System.out.println("Libro modificado con exito");
                     } catch (SQLException e) {
                         System.err.println("Error al hacer los cambios en Libro");
