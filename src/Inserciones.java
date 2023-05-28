@@ -3,6 +3,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Inserciones {
+    private static Statement sentencia=Conexion.sentencia;
     static Scanner sc;
     public static void insertarAutor(){
         Statement sentencia = null;

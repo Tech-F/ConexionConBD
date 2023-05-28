@@ -4,6 +4,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Borrados {
+    private static Statement sentencia=Conexion.sentencia;
     static Scanner sc;
     public static void borradoDeLibro(){
         sc=new Scanner(System.in);

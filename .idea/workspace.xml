@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e2590e9-8bd7-406f-869e-a54613154b35" name="Changes" comment="Solo me quedaria Modificar autor por dni y luego hacer pruebas">
+    <list default="true" id="0e2590e9-8bd7-406f-869e-a54613154b35" name="Changes" comment="Debería estar todo listo, falta probar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Borrados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Borrados.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Checks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Checks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Consultas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consultas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inserciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inserciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modificaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modificaciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sentencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sentencias.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +43,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "F:/Cole/Programación/Documentos para el trabajo final/EjemploConectores",
+    "last_opened_file_path": "F:/Cole/Programación/Documentos para el trabajo final",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -96,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685221175768</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Debería estar todo listo, falta probar">
+      <created>1685231837648</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685231837648</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +126,7 @@
     <MESSAGE value="Insercion todo añadido" />
     <MESSAGE value="Los borrados añadidos" />
     <MESSAGE value="Solo me quedaria Modificar autor por dni y luego hacer pruebas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solo me quedaria Modificar autor por dni y luego hacer pruebas" />
+    <MESSAGE value="Debería estar todo listo, falta probar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debería estar todo listo, falta probar" />
   </component>
 </project>

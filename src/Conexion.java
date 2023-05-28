@@ -4,11 +4,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Conexion {
+   public static Statement sentencia = null;
     public static void conectamos(){
 
         //Desde este punto --->
 
-        Statement sentencia = null;
         Connection conexion = null;
 
 
@@ -31,10 +31,10 @@ public class Conexion {
         }
 
         try {
-            sentencia = conexion.createStatement();
+           sentencia = conexion.createStatement();
         } catch (SQLException e) {
             System.out.println("Error");
-        }
+                    }
 
         //<--- Hasta este punto, creamos la conexion con la base de datos
 

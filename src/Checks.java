@@ -3,6 +3,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Checks {
+    private static Statement sentencia=Conexion.sentencia;
 
 
     public static String checkAutorIfExists(String autor) {
@@ -71,14 +72,14 @@ public class Checks {
     }
 
     public static boolean comprobarNumeroMenuGeneral(int num) {
-        if (num != 1 || num != 2 || num != 3 || num != 4 || num != 0) {
+        if (num != 1 && num != 2 && num != 3 && num != 4 && num != 0) {
             System.err.println("Cabrón, solo tenías que hacer una cosa y te has equivocado, prueba otra vez anda");
             return false;
         } else return true;
     }
 
     public static boolean comprobarNumeroMenusPeque(int num) {
-        if (num != 1 || num != 2 || num != 0) {
+        if (num != 1 && num != 2 && num != 0) {
             System.err.println("Cabrón, solo tenías que hacer una cosa y te has equivocado, prueba otra vez anda");
             return false;
         } else return true;

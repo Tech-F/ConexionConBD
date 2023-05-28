@@ -3,6 +3,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Sentencias {
+    private static Statement sentencia=Conexion.sentencia;
     public static ResultSet sentenciaBuscarLibro(String titulo) {
         Statement sentencia = null;
         try {

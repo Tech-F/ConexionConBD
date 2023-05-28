@@ -4,6 +4,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Modificaciones {
+    private static Statement sentencia=Conexion.sentencia;
     static Scanner sc;
     public static void ModificarLibroPorTitulo(){
         Statement sentencia = null;
