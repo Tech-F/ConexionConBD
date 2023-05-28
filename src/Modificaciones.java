@@ -29,8 +29,9 @@ public class Modificaciones {
                 ResultSet listaLibros = Sentencias.sentenciaBuscarLibro(titulo);
                 if (listaLibros != null) {
                     try {
-                        sentencia.executeUpdate("UPDATE Libros SET IdLibro = " + listaLibros.getInt("idLibro") + ", Titulo = '" + nuevoTitulo + "', Precio = " + nuevoPrecio + ", Autor = '" + dniAutor + "'");
-
+                        int idLibro=listaLibros.getInt("IdLibro");
+                        sentencia.executeUpdate("UPDATE Libros SET Titulo = '" + nuevoTitulo + "', Precio = " + nuevoPrecio + ", Autor = '" + dniAutor + "' WHERE IdLibro = " + idLibro);
+                        System.out.println("Libro modificado con exito");
                     } catch (SQLException e) {
                         System.err.println("Error al hacer los cambios en Libro");
                     }
@@ -49,11 +50,10 @@ public class Modificaciones {
             String nuevoNombre=sc.nextLine();
             System.out.println("Dime la nueva nacionalidad del Autor");
             String nuevaNacionalidad=sc.nextLine();
-            System.out.println("Dime el nuevo DNI del autor");
-            String nuevoDni=sc.nextLine();
-            if((Checks.checkTamanhoAutor(nuevoNombre)==2) && (Checks.checkTamanhoNacionalidad(nuevaNacionalidad)==2) && (Checks.checkDNIifExists(nuevoDni))){
+            if((Checks.checkTamanhoAutor(nuevoNombre)==2) && (Checks.checkTamanhoNacionalidad(nuevaNacionalidad)==2)){
                 try{
-                    sentencia.executeUpdate("UPDATE Autores set Dni= '"+nuevoDni+"', Nombre= '"+nuevoNombre+"', Nacionalidad= '"+nuevaNacionalidad+"';");
+                    sentencia.executeUpdate("UPDATE Autores set Nombre= '"+nuevoNombre+"', Nacionalidad= '"+nuevaNacionalidad+"';");
+                    System.out.println("Autor modificado correctamente");
                 } catch (Exception e) {
                     System.err.println("Problemita al Modificar un Autor");
                 }
