@@ -7,12 +7,15 @@ public class Menu {
 
     //Este será el menu principal
     public static void menuMaestro(){
-        Conexion.conectamos();
+        Conexion.getInstance();
+        //Con esta función metemos varios datos para no tener que meterlos a mano
+        RellenoDeInfo.rellenamosMovidas();
+        //Para ver que se rellenó, pues hay que verlo en la clase
         sc=new Scanner(System.in);
         int num=99999;
         do{
             System.out.println("__________________________________________");
-            System.out.println("|Digame vostede, que he o que quere facer?|");
+            System.out.println("|Dígame vostede, que he o que quere facer?|");
             System.out.println("|-----------------------------------------|");
             System.out.println("|Pulsa: 1 para Inserción de nuevas filas--|");
             System.out.println("|Pulsa: 2 para Borrar filas---------------|");// Me dirás que me quedó poco bonito el menu
@@ -28,8 +31,14 @@ public class Menu {
                         break;
                     case 2:
                         menuBorrado();
+                        break;
+                    case 3:
+                        menuConsultas();
+                    case 4:
+                        menuModificaciones();
                 }
             }
+            num=9999;
         }while (num!=0);
 
     }
@@ -88,6 +97,7 @@ public class Menu {
             System.out.println("|Pulsa: 4 para ver todos los autores y sus libros-------------|");
             System.out.println("|------------Pulsa 0 para salir-------------------------------|");
             System.out.println("|_____________________________________________________________|");
+            num = sc.nextInt();
             if(Checks.comprobarNumeroMenuGeneral(num)) {
                 switch (num) {
                     case 1:

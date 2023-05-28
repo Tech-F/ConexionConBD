@@ -3,10 +3,10 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Inserciones {
-    private static Statement sentencia=Conexion.sentencia;
+    private static Statement sentencia=Conexion.getInstance().getStatement();
     static Scanner sc;
     public static void insertarAutor(){
-        Statement sentencia = null;
+
         sc=new Scanner(System.in);
     System.out.println("Dígame un nombre de autor");
     String nombreAutor=sc.nextLine();
@@ -19,9 +19,9 @@ public class Inserciones {
 
     int verificarNacionalidad=Checks.checkTamanhoNacionalidad(nacionalidadAutor);
 
-    if((Checks.checkAutorIfExists(nombreAutor)==null) && valido && verificarNacionalidad==2) {
+    if((Checks.checkAutorIfExists(dniAutor)==false) && valido && verificarNacionalidad==2) {
         try {
-            sentencia.executeUpdate("INSERT INTO PRODUCTOS (Dni,Nombre,Nacionalidad) VALUES('" + dniAutor + "','" + nombreAutor + "','" + nacionalidadAutor + "');");
+            sentencia.executeUpdate("INSERT INTO Autores (Dni,Nombre,Nacionalidad) VALUES('" + dniAutor + "','" + nombreAutor + "','" + nacionalidadAutor + "');");
             System.out.println("Autor añadido");
         } catch (SQLException e) {
             System.err.println("Error al añadir un autor");
@@ -31,18 +31,23 @@ public class Inserciones {
 
 
     public static void insertarLibro(){
-        Statement sentencia = null;
+
         sc=new Scanner(System.in);
         System.out.println("Dígame el título del libro");
         String tituloLibro=sc.nextLine();
-        System.out.println();
         System.out.println("Dígame el precio del libro");
-        int precioLibro=sc.nextInt();
-        System.out.println("Dígame a que autor pertenece");
-        String autorDelLibro=sc.nextLine();
-        if(Checks.checkAutorIfExists(autorDelLibro)!=null){
+        String precioLibroMal=sc.nextLine();
+        int precioLibro;
+        try{
+            precioLibro=Integer.parseInt(precioLibroMal);
+        } catch (NumberFormatException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Dígame el DNi del autor al que autor pertenece");
+        String dniAutor=sc.nextLine();
+        if(Checks.checkAutorIfExists(dniAutor)){
             try{
-            sentencia.executeUpdate("INSERT INTO Libros (Titulo,Precio,Autor) VALUES('"+tituloLibro+"',"+precioLibro+",'"+autorDelLibro+"');");
+            sentencia.executeUpdate("INSERT INTO Libros (Titulo,Precio,Autor) VALUES('"+tituloLibro+"',"+precioLibro+",'"+dniAutor+"');");
             System.out.println("Libro añadido");
         } catch (SQLException e) {
                 System.err.println("Fallo al insertar el libro en parte 1");
@@ -52,8 +57,10 @@ public class Inserciones {
             int num=sc.nextInt();
             if(num==1){
                  insertarAutor();
+                 System.out.println("Cual es el dni del autor que has creado?");
+                 dniAutor=sc.nextLine();
                     try{
-                        sentencia.executeUpdate("INSERT INTO Libros (Titulo,Precio,Autor) VALUES('"+tituloLibro+"',"+precioLibro+",'"+autorDelLibro+"');");
+                        sentencia.executeUpdate("INSERT INTO Libros (Titulo,Precio,Autor) VALUES('"+tituloLibro+"',"+precioLibro+",'"+dniAutor+"');");
                         System.out.println("Libro añadido");
                     } catch (SQLException e) {
                         System.err.println("Fallo al insertar el libro en parte 2");

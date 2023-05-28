@@ -3,15 +3,28 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 public class Conexion {
-   public static Statement sentencia = null;
-    public static void conectamos(){
+    private static Conexion instance = null;
+    private static Statement sentencia = null;
 
-        //Desde este punto --->
+    private Conexion() {
+        conectamos();
+    }
 
+    public static Conexion getInstance() {
+        if(instance == null) {
+            instance = new Conexion();
+        }
+        return instance;
+    }
+
+    public Statement getStatement() {
+        return sentencia;
+    }
+
+    private void conectamos() {
         Connection conexion = null;
-
-
         int op = 0;
 
         try {
@@ -21,7 +34,6 @@ public class Conexion {
         }
 
         String url = "jdbc:mariadb://localhost:3307/?user=root&password=,swacIm5";
-        //String url = "jdbc:mariadb://localhost:3307/?user=root&password=,swacIm5";
         try {
             conexion = DriverManager.getConnection(url);
         } catch (SQLException e) {
@@ -31,13 +43,10 @@ public class Conexion {
         }
 
         try {
-           sentencia = conexion.createStatement();
+            sentencia = conexion.createStatement();
         } catch (SQLException e) {
             System.out.println("Error");
-                    }
-
-        //<--- Hasta este punto, creamos la conexion con la base de datos
-
-
+        }
+        CrearBase.crearBase(sentencia);
     }
 }

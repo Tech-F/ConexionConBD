@@ -3,25 +3,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Checks {
-    private static Statement sentencia=Conexion.sentencia;
+    private static Statement sentencia=Conexion.getInstance().getStatement();
 
 
-    public static String checkAutorIfExists(String autor) {
+    public static Boolean checkAutorIfExists(String dniAutor) {
 
+            ResultSet listaAutores = Sentencias.sentenciaBuscarAutor(dniAutor);
+        try {
+            if (listaAutores.next()) {
+                //True si el autor ya existe
+                return true;
+            } else{
 
-        if (checkTamanhoAutor(autor) == 2) {
-
-            Statement sentencia = null;
-            ResultSet listaAutores = Sentencias.sentenciaBuscarAutor(autor);
-            if (listaAutores != null) {
-                return autor;
-            } else System.err.println("El Autor no existe");
-
-        } else {
-            return null;
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error en el Check de autor");
         }
-        return null;
+return false;
     }
+
 
     public static int checkTamanhoAutor(String autor) {
         if (autor.length() > 30) {
@@ -30,7 +31,7 @@ public class Checks {
         } else return 2;
     }
 
-    //Esto de comprobar el DNI en plan Pro, sacadisimo de internet vamos, para que metir, tambien es que no lo pedias, es un poquito sobrada
+    //Esto de comprobar el DNI en plan Pro, sacadísimo de internet vamos, para que mentir, también es que no lo pedias, es un poquito sobrada
     //En lugar de un 2, esto se merece un 2.2 al menos
     public static boolean comprobarDNI(String dni) {
         // Verificar el formato del DNI
@@ -86,19 +87,22 @@ public class Checks {
     }
 
 
-    public static String checkLibroSiExiste(String titulo) {
+    public static Boolean checkLibroSiExiste(String titulo) {
         if (checkTamanhoTitulo(titulo) == 2) {
 
-            Statement sentencia = null;
-            ResultSet listaLibros = Sentencias.sentenciaBuscarLibro(titulo);
-            if (listaLibros != null) {
-                return titulo;
-            } else System.err.println("El Libro no existe");
-
+            try {
+                ResultSet listaLibros = Sentencias.sentenciaBuscarLibro(titulo);
+                while (listaLibros.next()) {
+                    return true;
+                }
+                System.err.println("El Libro no existe");
+                return false;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             return null;
         }
-        return null;
     }
 
     public static int checkTamanhoTitulo(String titulo) {
@@ -109,7 +113,7 @@ public class Checks {
     }
 
     public static boolean checkDNIifExists(String dni) {
-        Statement sentencia = null;
+
         if (Checks.comprobarDNI(dni)) {
             try {
                 ResultSet listaDNI = sentencia.executeQuery("SELECT * FROM Libros WHERE Dni = '" + dni + "';");

@@ -4,11 +4,11 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Borrados {
-    private static Statement sentencia=Conexion.sentencia;
+    private static Statement sentencia=Conexion.getInstance().getStatement();
     static Scanner sc;
     public static void borradoDeLibro(){
         sc=new Scanner(System.in);
-        Statement sentencia = null;
+
         System.out.println("Dime el titulo del libro que quieres borrar");
         String titulo=sc.nextLine();
         if(Checks.checkLibroSiExiste(titulo)!=null){
@@ -28,14 +28,12 @@ public class Borrados {
     public static void borradoDeAutor(){
         //Primero borraremos todos sus libros
         sc=new Scanner(System.in);
-        Statement sentencia = null;
-        System.out.println("Dime el nombre del autor a borrar");
-        String nombreAutor=sc.nextLine();
-        ResultSet listaAutores=Sentencias.sentenciaBuscarAutor(nombreAutor);
-        if(listaAutores!=null){
+
+        System.out.println("Dime el dni del autor para borrarlo");
+        String dniAutor=sc.nextLine();
+        if(Checks.checkAutorIfExists(dniAutor)){
             try {
-                String dniAutor=listaAutores.getString("Dni");
-                sentencia.execute("DELETE FROM Libros WHERE Autores='"+dniAutor+"';");
+                sentencia.execute("DELETE FROM Libros WHERE Autor='"+dniAutor+"';");
                 sentencia.execute("DELETE FROM Autores WHERE Dni='"+dniAutor+"';");
 
             } catch (SQLException e) {
