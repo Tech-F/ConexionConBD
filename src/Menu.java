@@ -15,7 +15,7 @@ public class Menu {
         int num=99999;
         do{
             System.out.println("__________________________________________");
-            System.out.println("|Dígame vostede, que he o que quere facer?|");
+            System.out.println("|Dígame vostede, que e o que quere facer?|");
             System.out.println("|-----------------------------------------|");
             System.out.println("|Pulsa: 1 para Inserción de nuevas filas--|");
             System.out.println("|Pulsa: 2 para Borrar filas---------------|");// Me dirás que me quedó poco bonito el menu
@@ -34,11 +34,13 @@ public class Menu {
                         break;
                     case 3:
                         menuConsultas();
+                        break;
                     case 4:
                         menuModificaciones();
+                        break;
                 }
             }
-            num=9999;
+
         }while (num!=0);
 
     }
@@ -111,6 +113,7 @@ public class Menu {
                         break;
                     case 4:
                             Consultas.listarAutoresConSusLibros();
+                            break;
                 }
             }
         }while (num!=0);

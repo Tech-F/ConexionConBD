@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e2590e9-8bd7-406f-869e-a54613154b35" name="Changes" comment="Correccion modificacion autor correcta">
+    <list default="true" id="0e2590e9-8bd7-406f-869e-a54613154b35" name="Changes" comment="Vale, yo diría que ya es funcional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Borrados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Borrados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Consultas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Consultas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modificaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modificaciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685282143058</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Vale, yo diría que ya es funcional">
+      <created>1685285437990</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685285437990</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +153,7 @@
     <MESSAGE value="Añadimos la gentencia de conexion a todo. Ahora voy a borrar las especificas" />
     <MESSAGE value="Un feixe de cousas cambiadas" />
     <MESSAGE value="Correccion modificacion autor correcta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correccion modificacion autor correcta" />
+    <MESSAGE value="Vale, yo diría que ya es funcional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vale, yo diría que ya es funcional" />
   </component>
 </project>
