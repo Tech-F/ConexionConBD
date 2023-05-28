@@ -3,6 +3,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Checks {
+
+    //Esta quizá sea la clase mais guay, donde se comprueba lo maximo posible, esta comoda.
     private static Statement sentencia=Conexion.getInstance().getStatement();
 
 

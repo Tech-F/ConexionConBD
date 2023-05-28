@@ -5,6 +5,8 @@ import java.sql.Statement;
 public class RellenoDeInfo {
     private static Statement sentencia= Conexion.getInstance().getStatement();
     public static void rellenamosMovidas() {
+
+        //Esto es para reyenarlo solo, para que ya puedas practicar
         try {
             //Aquí metemos 3 buenos autores
             sentencia.executeUpdate("INSERT INTO Autores (Dni, Nombre, Nacionalidad) VALUES('12345678A', 'Manolo', 'Española');");

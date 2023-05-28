@@ -5,6 +5,7 @@ import java.sql.Statement;
 public class Sentencias {
     private static Statement sentencia=Conexion.getInstance().getStatement();
     public static ResultSet sentenciaBuscarLibro(String titulo) {
+        //Podia habe metido algunas más, porque pinches ' , es lo que mas fastidio.
 
         try {
             ResultSet listaLibros = sentencia.executeQuery("SELECT * FROM Libros WHERE Titulo = '" + titulo + "';");

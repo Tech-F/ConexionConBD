@@ -5,6 +5,7 @@ import java.sql.Statement;
 
 
 public class Conexion {
+    //Esta clase es como la tuya pero variando un poco como se declara para poder llamarlo desde las distintas clases
     private static Conexion instance = null;
     private static Statement sentencia = null;
 
@@ -33,7 +34,7 @@ public class Conexion {
             e.printStackTrace();
         }
 
-        String url = "jdbc:mariadb://localhost:3307/?user=root&password=,swacIm5";
+        String url = "jdbc:mariadb://localhost:3307/?user=root&password=,swacIm5"; //Ojo aqui al poner el LocalHost porque tenía la 06 ocupada. La contraseña ya la teneis desde siempre
         try {
             conexion = DriverManager.getConnection(url);
         } catch (SQLException e) {

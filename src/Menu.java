@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class Menu {
-
+//En esta clase lo que hacemos es crear los menus que necesitaremos para viajar por el programa.
     static Scanner sc;
 
 
     //Este será el menu principal
     public static void menuMaestro(){
-        Conexion.getInstance();
+        Conexion.getInstance();//Aqui nos vamos a la clase Conexon para realizar la conexion con la base de datos.
         //Con esta función metemos varios datos para no tener que meterlos a mano
         RellenoDeInfo.rellenamosMovidas();
         //Para ver que se rellenó, pues hay que verlo en la clase
@@ -45,7 +45,7 @@ public class Menu {
 
     }
 
-    public static void menuInsercion(){
+    public static void menuInsercion(){ //Este uno de los menu
         sc=new Scanner(System.in);
         int num=999;
         do{
@@ -66,7 +66,7 @@ public class Menu {
         }while (num!=0);
     }
 
-    public static void menuBorrado(){
+    public static void menuBorrado(){ //Pues nada, menu de borrado
         sc=new Scanner(System.in);
         int num=999;
         do{
@@ -86,7 +86,7 @@ public class Menu {
         }while (num!=0);
     }
 
-    public static void menuConsultas() {
+    public static void menuConsultas() { //Este es mas larguito porque tiene mas cosas
         sc = new Scanner(System.in);
         int num = 99999;
         do {
@@ -119,7 +119,7 @@ public class Menu {
         }while (num!=0);
     }
 
-    public static void menuModificaciones(){
+    public static void menuModificaciones(){//Otro mas
         sc=new Scanner(System.in);
         int num=999;
         do{

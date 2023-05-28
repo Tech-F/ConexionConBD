@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Modificaciones {
     private static Statement sentencia=Conexion.getInstance().getStatement();
     static Scanner sc;
-    public static void ModificarLibroPorTitulo(){
+    public static void ModificarLibroPorTitulo(){ //to-do esto realmente ya te lo sabes
         sc=new Scanner(System.in);
         System.out.println("Dime el titulo del libro que quieres modificar");
         String titulo=sc.nextLine();

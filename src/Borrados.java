@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Borrados {
     private static Statement sentencia=Conexion.getInstance().getStatement();
     static Scanner sc;
-    public static void borradoDeLibro(){
+    public static void borradoDeLibro(){ //Aqui se busca el libro por titulo y se borra pues
         sc=new Scanner(System.in);
 
         System.out.println("Dime el titulo del libro que quieres borrar");
@@ -23,7 +23,7 @@ public class Borrados {
     }
 
 
-    public static void borradoDeAutor(){
+    public static void borradoDeAutor(){//Borramos el autor busnco el DNI, pero primerito, los libros
         //Primero borraremos todos sus libros
         sc=new Scanner(System.in);
 

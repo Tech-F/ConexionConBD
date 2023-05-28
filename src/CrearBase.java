@@ -6,6 +6,8 @@ import java.sql.Statement;
 public class CrearBase {
     public static void crearBase(Statement sentencia){
         try{//Aqui creamos la base como quien dice, con código de SQL
+
+            //Bueno, y yo hago un DROP DATABASE, completamente a proposito, no me des esto por malo por cambiarlo, pero me resulta mas como para este trabajo.
             String bd="Biblioteca";
             sentencia.execute("DROP DATABASE IF EXISTS "+bd+";");
             sentencia.execute("CREATE DATABASE "+bd+";");
